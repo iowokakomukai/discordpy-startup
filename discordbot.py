@@ -23,6 +23,8 @@
 # インストールした discord.py を読み込む
 import discord
 import os
+import asyncio
+import time
 
 # アクセストークン(Botの)
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
