@@ -84,16 +84,18 @@ async def on_ready(): #Bot起動準備完了時
 
 @client.event
 async def on_message(message): #message受信時
+  #clear
   if message.author.bot: #Botだった場合は反応しない
     return
 
+  #clear
   if message.channel.id == ID_BUMP_ROOM and message.content == "!d bump": #disboardのbumpコマンド実行時&チャンネル指定
-    await asyncio.sleep(5)
+    await asyncio.sleep(7200)
     await message.channel.send("<@&740293083089993748> remind 2hours") #remind bump用ロール
     return
-#   channel = client.get_channel(payload.channel_id)
   await message.channel.send("responce")
 
+  
   if message.channel.id == ID_SELF_MEN or message.channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
     member = channel.guild.get_member(payload.user_id)
     role = guild.get_role(SELF_ROLE_ID)
