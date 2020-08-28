@@ -89,6 +89,8 @@ async def on_message(message): #message受信時
     await sleep(5)
     await message.channel.send("<@&347054130214338570> remind 2hours") #remind bump用ロール
   channel = client.get_channel(payload.channel_id)
+  await message.channel.send(message.channel.id)
+  await message.channel.send(ID_BUMP_ROOM)
 
   if message.channel.id == ID_SELF_MEN or message.channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
     member = channel.guild.get_member(payload.user_id)
