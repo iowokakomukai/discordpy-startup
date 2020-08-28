@@ -34,38 +34,50 @@ client = discord.Client()
 ServerID=int(739996326665912320)
 server=client.get_guild(ServerID)
 
+#ChannnelID List
+ID_SELF_MEN=int(739996327336869948)
+ID_SELF_WOMEN=int(739996327336869949)
+ID_BUMP_ROOM=int(739996331355013130)
+
+#RoleID List
+SELF_ROLE_ID=int(739996326871171148)
+M_ROLE_ID=int(739996326779158538)
+F_ROLE_ID=int(739996326737084575)
+FR_ROLE_ID=int(739996326779158539)
+VWAU_ROLE_ID=int(739996326737084567)
+
 @client.event
 async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
-  Linvite=server.invites()
-  await channel.send("await invite")
-  await channel.send(Linvite)
+#   Linvite=server.invites()
+#   await channel.send("await invite")
+#   await channel.send(Linvite)
   await channel.send("Return")
 
-@client.event
-async def on_member_join(member):
-  a_invite_B=0;a_invite_C=0;a_invite_D=0;
-  Linvite=await invites()
-  a_invite_B=Linvite[0].max_uses
-  a_invite_C=Linvite[1].max_uses
-  a_invite_D=Linvite[2].max_uses
-  if a_invite_B!=invite_B:
-    role = guild.get_role(ID)
-    await member.add_roles(role)
-  elif a_invite_C!=invite_C:
-    role = guild.get_role(ID)
-    await member.add_roles(role)
-  elif a_invite_D!=invite_D:
-    role = guild.get_role(ID)
-    await member.add_roles(role)
-  else:
-    role = guild.get_role(ID)
-    await member.add_roles(role)
-  invite_B=a_invite_B
-  invite_C=a_invite_C
-  invite_D=a_invite_D
+# @client.event
+# async def on_member_join(member):
+#   a_invite_B=0;a_invite_C=0;a_invite_D=0;
+#   Linvite=await invites()
+#   a_invite_B=Linvite[0].max_uses
+#   a_invite_C=Linvite[1].max_uses
+#   a_invite_D=Linvite[2].max_uses
+#   if a_invite_B!=invite_B:
+#     role = guild.get_role(ID)
+#     await member.add_roles(role)
+#   elif a_invite_C!=invite_C:
+#     role = guild.get_role(ID)
+#     await member.add_roles(role)
+#   elif a_invite_D!=invite_D:
+#     role = guild.get_role(ID)
+#     await member.add_roles(role)
+#   else:
+#     role = guild.get_role(ID)
+#     await member.add_roles(role)
+#   invite_B=a_invite_B
+#   invite_C=a_invite_C
+#   invite_D=a_invite_D
 
 
 @client.event
@@ -76,21 +88,21 @@ async def on_message(message): #message受信時
   if channel.id == ID_BUMP_ROOM and message.content == "!d bump": #disboardのbumpコマンド実行時&チャンネル指定
     print("Bump execution") #ターミナル
     await sleep(7200)
-    await message.channel.send("<@&000000000000000000> remind 2hours") #remind bump用ロール
+    await message.channel.send("<@&347054130214338570> remind 2hours") #remind bump用ロール
   channel = client.get_channel(payload.channel_id)
 
   if channel.id == ID_SELF_MEN or channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
     member = channel.guild.get_member(payload.user_id)
-    role = guild.get_role(ID)
+    role = guild.get_role(SELF_ROLE_ID)
     await member.add_roles(role) #自己紹介済みのロールID
     if channel.id == ID_SELF_MEN:
-      role = guild.get_role(ID)
+      role = guild.get_role(M_ROLE_ID)
       await member.add_roles(role) #m
       return member
     else:
-      role = guild.get_role(ID)
+      role = guild.get_role(F_ROLE_ID)
       await member.add_roles(role) #f
-      role = guild.get_role(ID)
+      role = guild.get_role(FR_ROLE_ID)
       await member.add_roles(role) #fr
       return member
 
@@ -103,19 +115,19 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
   nvwau='nvwau' in after.member.roles.name
   if vwau:
     if nvwau:
-      role = guild.get_role(ID)
+      role = guild.get_role(VWAU_ROLE_ID)
       await member.remove_roles(role) #vwauのロールID
       return member
   else:
     if not nvwau:
-      role = guild.get_role(ID)
+      role = guild.get_role(VWAU_ROLE_ID)
       await member.add_roles(role) #vwauのロールID
       return member
 
   R18='R18NG' in after.member.roles.name
   fr='fr' in after.member.roles.name
   if fr and R18:
-    role = guild.get_role(ID)
+    role = guild.get_role(FR_ROLE_ID)
     await member.remove_roles(role)
     return member
 
