@@ -39,7 +39,7 @@ async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
-  Linvite=await server.invites()
+  Linvite=server.invites()
   await channel.send("await invite")
   await channel.send(Linvite)
   await channel.send("Return")
