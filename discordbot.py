@@ -24,15 +24,15 @@
 import discord
 import os
 
-#serverID
-ServerID=int(739996326665912320)
-server=client.get_guild(ServerID)
-
 # アクセストークン(Botの)
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
+
+#serverID
+ServerID=int(739996326665912320)
+server=client.get_guild(ServerID)
 
 @client.event
 async def on_ready(): #Bot起動準備完了時
