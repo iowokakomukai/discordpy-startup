@@ -33,7 +33,7 @@ client = discord.Client()
 @client.event
 async def on_ready(): #Bot起動準備完了時
   print("Login this bot") #ターミナル
-  ChannelID = int(0000000000000) #送信するチャンネルID
+  ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
 
