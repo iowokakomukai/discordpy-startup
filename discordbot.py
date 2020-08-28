@@ -32,10 +32,11 @@ client = discord.Client()
 
 @client.event
 async def on_ready(): #Bot起動準備完了時
-  print("Login this bot") #ターミナル
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
+  Linvite=await invites()
+  await channel.send(Linvite)
 
 @client.event
 async def on_member_join(member):
