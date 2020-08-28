@@ -36,6 +36,7 @@ async def on_ready(): #Bot起動準備完了時
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
   Linvite=await invites()
+  await channel.send("await invite")
   await channel.send(Linvite)
   await channel.send("Return")
 
