@@ -86,8 +86,7 @@ async def on_message(message): #message受信時
     return
 
   if channel.id == ID_BUMP_ROOM and message.content == "!d bump": #disboardのbumpコマンド実行時&チャンネル指定
-    print("Bump execution") #ターミナル
-    await sleep(7200)
+    await sleep(5)
     await message.channel.send("<@&347054130214338570> remind 2hours") #remind bump用ロール
   channel = client.get_channel(payload.channel_id)
 
