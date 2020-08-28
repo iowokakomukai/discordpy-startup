@@ -85,16 +85,16 @@ async def on_message(message): #message受信時
   if message.author.bot: #Botだった場合は反応しない
     return
 
-  if channel.id == ID_BUMP_ROOM and message.content == "!d bump": #disboardのbumpコマンド実行時&チャンネル指定
+  if message.channel.id == ID_BUMP_ROOM and message.content == "!d bump": #disboardのbumpコマンド実行時&チャンネル指定
     await sleep(5)
     await message.channel.send("<@&347054130214338570> remind 2hours") #remind bump用ロール
   channel = client.get_channel(payload.channel_id)
 
-  if channel.id == ID_SELF_MEN or channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
+  if message.channel.id == ID_SELF_MEN or message.channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
     member = channel.guild.get_member(payload.user_id)
     role = guild.get_role(SELF_ROLE_ID)
     await member.add_roles(role) #自己紹介済みのロールID
-    if channel.id == ID_SELF_MEN:
+    if message.channel.id == ID_SELF_MEN:
       role = guild.get_role(M_ROLE_ID)
       await member.add_roles(role) #m
       return member
