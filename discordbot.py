@@ -24,6 +24,10 @@
 import discord
 import os
 
+#serverID
+ServerID=int(739996326665912320)
+server=client.get_guild(ServerID)
+
 # アクセストークン(Botの)
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
@@ -35,7 +39,7 @@ async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
-  Linvite=await invites()
+  Linvite=await Guild.invites()
   await channel.send("await invite")
   await channel.send(Linvite)
   await channel.send("Return")
