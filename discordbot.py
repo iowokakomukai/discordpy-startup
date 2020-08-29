@@ -1,25 +1,3 @@
-# from discord.ext import commands
-# import os
-# import traceback
-
-# bot = commands.Bot(command_prefix='/')
-# token = os.environ['DISCORD_BOT_TOKEN']
-
-
-# @bot.event
-# async def on_command_error(ctx, error):
-#     orig_error = getattr(error, "original", error)
-#     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-#     await ctx.send(error_msg)
-
-
-# @bot.command()
-# async def ping(ctx):
-#     await ctx.send('pong')
-
-
-# bot.run(token)
-
 # インストールした discord.py を読み込む
 import discord
 import os
@@ -100,6 +78,7 @@ async def on_message(message): #message受信時
     member = client.get_user(message.author.id)
     role = server.get_role(SELF_ROLE_ID)
     await member.add_roles(role) #自己紹介済みのロールID
+    await message.channel.send("responce")
     if message.channel.id == ID_SELF_MEN:
       role = server.get_role(M_ROLE_ID)
       await member.add_roles(role) #m
