@@ -25,7 +25,6 @@ import discord
 import os
 import asyncio
 import time
-import requests
 
 # アクセストークン(Botの)
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
