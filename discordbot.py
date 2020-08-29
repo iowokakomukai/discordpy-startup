@@ -93,11 +93,11 @@ async def on_message(message): #message受信時
     await asyncio.sleep(7200)
     await message.channel.send("<@&740293083089993748> remind 2hours") #remind bump用ロール
     return
-  await message.channel.send("responce")
 
   
   if message.channel.id == ID_SELF_MEN or message.channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
-    member = message.channel.guild.get_member(payload.user_id)
+    await message.channel.send("responce")
+    member = message.channel.guild.get_user(payload.user_id)
     role = server.get_role(SELF_ROLE_ID)
     await member.add_roles(role) #自己紹介済みのロールID
     if message.channel.id == ID_SELF_MEN:
