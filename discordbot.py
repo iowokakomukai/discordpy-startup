@@ -98,21 +98,14 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
   nvwau='nvwau' in after.member.roles.name
   if vwau:
     if nvwau:
-      role = guild.get_role(VWAU_ROLE_ID)
-      await member.remove_roles(role) #vwauのロールID
+      role =server.get_role(VWAU_ROLE_ID)
+      await after.member.remove_roles(role) #vwauのロールID
       return member
   else:
     if not nvwau:
       role = guild.get_role(VWAU_ROLE_ID)
-      await member.add_roles(role) #vwauのロールID
+      await after.member.add_roles(role) #vwauのロールID
       return member
-
-  R18='R18NG' in after.member.roles.name
-  fr='fr' in after.member.roles.name
-  if fr and R18:
-    role = guild.get_role(FR_ROLE_ID)
-    await member.remove_roles(role)
-    return member
 
 
 # Botの起動とDiscordサーバーへの接続
