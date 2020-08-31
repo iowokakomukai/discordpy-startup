@@ -74,7 +74,7 @@ async def on_message(message): #message受信時
 
   
   if message.channel.id == ID_SELF_MEN or message.channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
-    member = client.get_user(message.author.id)
+    member = message.guild.get_member(message.author.id)
     role = server.get_role(SELF_ROLE_ID)
     await message.channel.send(message.author.id)
     await message.channel.send(role)
@@ -87,8 +87,6 @@ async def on_message(message): #message受信時
     else:
       role = server.get_role(F_ROLE_ID)
       await member.add_roles(role) #f
-      role = server.get_role(FR_ROLE_ID)
-      await member.add_roles(role) #fr
       return member
 
 @client.event
