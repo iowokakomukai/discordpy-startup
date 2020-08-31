@@ -103,7 +103,7 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
       return member
   else:
     if not nvwau:
-      role = guild.get_role(VWAU_ROLE_ID)
+      role = server.get_role(VWAU_ROLE_ID)
       await after.member.add_roles(role) #vwauのロールID
       return member
 
