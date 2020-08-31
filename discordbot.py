@@ -74,11 +74,10 @@ async def on_message(message): #message受信時
 
   await message.channel.send("channel")
   if message.channel.id == ID_SELF_MEN or message.channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
-    await message.channel.send("self")
     member = client.get_user(message.author.id)
+    await message.channel.send(message.author.id)
     role = server.get_role(SELF_ROLE_ID)
     await message.channel.send("return")
-    await message.channel.send(message.author.id)
     await message.channel.send(role)
     await member.add_roles(role) #自己紹介済みのロールID
     await message.channel.send("responce")
