@@ -34,7 +34,7 @@ async def on_ready(): #Bot起動準備完了時
 #   Linvite=server.invites()
 #   await channel.send("await invite")
 #   await channel.send(Linvite)
-  await channel.send("Return")
+#   await channel.send("Return")
 
 # @client.event
 # async def on_member_join(member):
