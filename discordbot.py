@@ -30,36 +30,34 @@ NVWAU_ROLE_ID=int(739996326737084566)
 async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
-  server=client.get_guild(ServerID)
   await channel.send("Ready")
-  await channel.send(type(server))
-  Linvite=await server.invites()
-  await channel.send("await invite")
-  await channel.send(Linvite)
-  await channel.send("Return")
 
-# @client.event
-# async def on_member_join(member):
-#   a_invite_B=0;a_invite_C=0;a_invite_D=0;
-#   Linvite=await member.guild.invites()
-#   a_invite_B=Linvite[0].max_uses
-#   a_invite_C=Linvite[1].max_uses
-#   a_invite_D=Linvite[2].max_uses
-#   if a_invite_B!=invite_B:
-#     role = guild.get_role(ID)
-#     await member.add_roles(role)
-#   elif a_invite_C!=invite_C:
-#     role = guild.get_role(ID)
-#     await member.add_roles(role)
-#   elif a_invite_D!=invite_D:
-#     role = guild.get_role(ID)
-#     await member.add_roles(role)
-#   else:
-#     role = guild.get_role(ID)
-#     await member.add_roles(role)
-#   invite_B=a_invite_B
-#   invite_C=a_invite_C
-#   invite_D=a_invite_D
+invite_B=0;invite_C=0;invite_D=2
+
+@client.event
+async def on_member_join(member):
+  server=client.get_guild(ServerID)
+  a_invite_B=0;a_invite_C=0;a_invite_D=0;
+  Linvite=await server.invites()
+  await channel.send(Linvite)
+  a_invite_B=Linvite[0].max_uses
+  a_invite_C=Linvite[1].max_uses
+  a_invite_D=Linvite[2].max_uses
+  if a_invite_B!=invite_B:
+    role = guild.get_role(ID)
+    await member.add_roles(role)
+  elif a_invite_C!=invite_C:
+    role = guild.get_role(ID)
+    await member.add_roles(role)
+  elif a_invite_D!=invite_D:
+    role = guild.get_role(ID)
+    await member.add_roles(role)
+  else:
+    role = guild.get_role(ID)
+    await member.add_roles(role)
+  invite_B=a_invite_B
+  invite_C=a_invite_C
+  invite_D=a_invite_D
 
 #clear
 @client.event
