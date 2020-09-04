@@ -112,18 +112,17 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
 #   vwau="vwau" in after.roles
 #   nvwau="nvwau" in after.roles
 #   await channel.send("vwau" in after.roles)
+  role = after.guild.get_role(VWAU_ROLE_ID)
   if vwau:
     await channel.send("vwau")
     if nvwau:
       await channel.send("nvwau")
-      role =server.guild.get_role(VWAU_ROLE_ID)
       await after.remove_roles(role) #vwauのロールID
       return after
   else:
     await channel.send("not vwau")
     if not nvwau:
       await channel.send("not nvwau")
-      role = after.guild.get_role(VWAU_ROLE_ID)
       await after.add_roles(role) #vwauのロールID
       return after
 
