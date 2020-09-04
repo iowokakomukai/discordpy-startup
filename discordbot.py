@@ -31,10 +31,10 @@ async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
-  Linvite=await server.invites()
-  await channel.send("await invite")
-  await channel.send(Linvite)
-  await channel.send("Return")
+#   Linvite=await server.invites()
+#   await channel.send("await invite")
+#   await channel.send(Linvite)
+#   await channel.send("Return")
 
 # @client.event
 # async def on_member_join(member):
@@ -99,21 +99,21 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
   await channel.send("Ready")
   await channel.send(after.roles)
   
-#   for item in after.roles :
-#     await channel.send(item)
+  for item in after.roles :
+    await channel.send(item)
 #     if "vwau" in item :
 #         vwau = True
 #         await channel.send("break")
 #         #該当する要素が見つかった時点でブレイクします。
 #         break
-#     await channel.send("loop")
-#   for item in after.roles :
-#     await channel.send("for")
-#     if "nvwau" in item :
-#         nvwau = True
-#         await channel.send("break")
-#         #該当する要素が見つかった時点でブレイクします。
-#         break
+    await channel.send("loop")
+  for item in after.roles :
+    await channel.send("for")
+    if "nvwau" in item :
+        nvwau = True
+        await channel.send("break")
+        #該当する要素が見つかった時点でブレイクします。
+        break
   vwau="vwau" in after.roles
   nvwau="nvwau" in after.roles
   await channel.send("vwau" in after.roles)
