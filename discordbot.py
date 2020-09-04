@@ -97,7 +97,7 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
     return
   vwau=False;nvwau=False
   await channel.send("Ready")
-  await channel.send(after.roles)
+  await channel.send(after.roles.id)
   
 #   for item in after.roles :
 #     await channel.send(item)
