@@ -103,13 +103,16 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
     await channel.send("for")
     if "name='vwau'" in item :
         vwau = True
+        await channel.send("break")
         #該当する要素が見つかった時点でブレイクします。
         break
     else:
       vwau = False
   for item in after.roles :
+    await channel.send("for")
     if "name='nvwau'" in item :
         nvwau = True
+        await channel.send("break")
         #該当する要素が見つかった時点でブレイクします。
         break
     else:
