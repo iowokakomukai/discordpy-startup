@@ -36,7 +36,9 @@ async def on_ready(): #Bot起動準備完了時
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
 
-invite_B=0;invite_C=1;invite_D=2
+global invite_B=0
+global invite_C=2
+global invite_D=2
 
 @client.event
 async def on_member_join(member):
