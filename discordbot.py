@@ -99,24 +99,24 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
   await channel.send("Ready")
   await channel.send(after.roles)
   
-  for item in after.roles :
-    await channel.send(item)
-    if "vwau" in item :
-        vwau = True
-        await channel.send("break")
-        #該当する要素が見つかった時点でブレイクします。
-        break
-    await channel.send("loop")
-  for item in after.roles :
-    await channel.send("for")
-    if "nvwau" in item :
-        nvwau = True
-        await channel.send("break")
-        #該当する要素が見つかった時点でブレイクします。
-        break
-#   vwau="<Role id=739996326737084567 name='vwau'>" in after.roles
-#   nvwau="<Role id=739996326737084566 name='nvwau'>" in after.roles
-#   await channel.send("<Role id=739996326737084567 name='vwau'>" in after.roles)
+#   for item in after.roles :
+#     await channel.send(item)
+#     if "vwau" in item :
+#         vwau = True
+#         await channel.send("break")
+#         #該当する要素が見つかった時点でブレイクします。
+#         break
+#     await channel.send("loop")
+#   for item in after.roles :
+#     await channel.send("for")
+#     if "nvwau" in item :
+#         nvwau = True
+#         await channel.send("break")
+#         #該当する要素が見つかった時点でブレイクします。
+#         break
+  vwau="vwau" in after.roles
+  nvwau="nvwau" in after.roles
+  await channel.send("vwau" in after.roles)
   if vwau:
     await channel.send("vwau")
     if nvwau:
