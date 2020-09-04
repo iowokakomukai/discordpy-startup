@@ -38,7 +38,7 @@ async def on_ready(): #Bot起動準備完了時
 
 @client.event
 async def on_member_join(member):
-  invite_B=0;invite_C=2;invite_D=2
+  invite_B=0;invite_C=3;invite_D=2
   server=client.get_guild(ServerID)
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
@@ -48,12 +48,12 @@ async def on_member_join(member):
   await channel.send(invite_B)
   await channel.send(invite_C)
   await channel.send(invite_D)
-  a_invite_B=Linvite[0].max_uses
-  a_invite_C=Linvite[1].max_uses
-  a_invite_D=Linvite[2].max_uses
-  await channel.send(Linvite[0].max_uses)
-  await channel.send(Linvite[1].max_uses)
-  await channel.send(Linvite[2].max_uses)
+  a_invite_B=Linvite[0].uses
+  a_invite_C=Linvite[1].uses
+  a_invite_D=Linvite[2].uses
+  await channel.send(Linvite[0].uses)
+  await channel.send(Linvite[1].uses)
+  await channel.send(Linvite[2].uses)
   if a_invite_B!=invite_B:
     role = server.get_role(B_ROLE_ID)
     await member.add_roles(role)
