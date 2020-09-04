@@ -89,21 +89,24 @@ async def on_message(message): #message受信時
 
 @client.event
 async def on_member_update(before, after):#Member情報変更時に呼び出し
-  if before.member.roles == after.member.roles: #更新前と更新後のロールが同じ
+  await channel.send("update")
+  if before.roles == after.roles: #更新前と更新後のロールが同じ
+    await channel.send("same")
     return
   
-  vwau='vwau' in after.member.roles.name
-  nvwau='nvwau' in after.member.roles.name
+  await channel.send("Ready")
+  vwau='vwau' in after.roles.name
+  nvwau='nvwau' in after.roles.name
   if vwau:
     if nvwau:
-      role =server.get_role(VWAU_ROLE_ID)
-      await after.member.remove_roles(role) #vwauのロールID
-      return member
+      role =server.guild.get_role(VWAU_ROLE_ID)
+      await after.remove_roles(role) #vwauのロールID
+      return after
   else:
     if not nvwau:
-      role = server.get_role(VWAU_ROLE_ID)
-      await after.member.add_roles(role) #vwauのロールID
-      return member
+      role = after.guild.get_role(VWAU_ROLE_ID)
+      await after.add_roles(role) #vwauのロールID
+      return after
 
 
 # Botの起動とDiscordサーバーへの接続
