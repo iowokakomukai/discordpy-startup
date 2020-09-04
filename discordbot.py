@@ -25,6 +25,10 @@ F_ROLE_ID=int(739996326737084575)
 FR_ROLE_ID=int(739996326779158539)
 VWAU_ROLE_ID=int(739996326737084567)
 NVWAU_ROLE_ID=int(739996326737084566)
+B_ROLE_ID=int(751477448503328898)
+C_ROLE_ID=int(751477451556913253)
+D_ROLE_ID=int(751477456640409625)
+I_ROLE_ID=int(751477458724978818)
 
 @client.event
 async def on_ready(): #Bot起動準備完了時
@@ -44,16 +48,16 @@ async def on_member_join(member):
   a_invite_C=Linvite[1].max_uses
   a_invite_D=Linvite[2].max_uses
   if a_invite_B!=invite_B:
-    role = guild.get_role(ID)
+    role = server.get_role(B_ROLE_ID)
     await member.add_roles(role)
   elif a_invite_C!=invite_C:
-    role = guild.get_role(ID)
+    role = server.get_role(C_ROLE_ID)
     await member.add_roles(role)
   elif a_invite_D!=invite_D:
-    role = guild.get_role(ID)
+    role = server.get_role(D_ROLE_ID)
     await member.add_roles(role)
   else:
-    role = guild.get_role(ID)
+    role = server.get_role(I_ROLE_ID)
     await member.add_roles(role)
   invite_B=a_invite_B
   invite_C=a_invite_C
