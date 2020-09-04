@@ -12,7 +12,6 @@ client = discord.Client()
 
 #serverID
 ServerID=int(739996326665912320)
-server=client.get_guild(ServerID)
 
 #ChannnelID List
 ID_SELF_MEN=int(739996327336869948)
@@ -31,12 +30,13 @@ NVWAU_ROLE_ID=int(739996326737084566)
 async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
+  server=client.get_guild(ServerID)
   await channel.send("Ready")
   await channel.send(type(server))
-#   Linvite=await server.invites()
-#   await channel.send("await invite")
-#   await channel.send(Linvite)
-#   await channel.send("Return")
+  Linvite=await server.invites()
+  await channel.send("await invite")
+  await channel.send(Linvite)
+  await channel.send("Return")
 
 # @client.event
 # async def on_member_join(member):
