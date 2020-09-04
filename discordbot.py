@@ -98,9 +98,24 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
   
   await channel.send("Ready")
   await channel.send(after.roles)
-  vwau="<Role id=739996326737084567 name='vwau'>" in after.roles
-  nvwau="<Role id=739996326737084566 name='nvwau'>" in after.roles
-  await channel.send("<Role id=739996326737084567 name='vwau'>" in after.roles)
+  
+  for item in after.roles :
+    if "name='vwau'" in item :
+        vwau = True
+        #該当する要素が見つかった時点でブレイクします。
+        break
+    else:
+      vwau = False
+  for item in after.roles :
+    if "name='nvwau'" in item :
+        nvwau = True
+        #該当する要素が見つかった時点でブレイクします。
+        break
+    else:
+      vwau = False
+#   vwau="<Role id=739996326737084567 name='vwau'>" in after.roles
+#   nvwau="<Role id=739996326737084566 name='nvwau'>" in after.roles
+#   await channel.send("<Role id=739996326737084567 name='vwau'>" in after.roles)
   if vwau:
     await channel.send("vwau")
     if nvwau:
