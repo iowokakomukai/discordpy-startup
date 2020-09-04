@@ -25,6 +25,7 @@ M_ROLE_ID=int(739996326779158538)
 F_ROLE_ID=int(739996326737084575)
 FR_ROLE_ID=int(739996326779158539)
 VWAU_ROLE_ID=int(739996326737084567)
+NVWAU_ROLE_ID=int(739996326737084566)
 
 @client.event
 async def on_ready(): #Bot起動準備完了時
@@ -89,15 +90,11 @@ async def on_message(message): #message受信時
 
 @client.event
 async def on_member_update(before, after):#Member情報変更時に呼び出し
-  ChannelID = int(739996327336869951) #送信するチャンネルID
-  channel = client.get_channel(ChannelID)
-  await channel.send("update")
   #clear
   if before.roles == after.roles: #更新前と更新後のロールが同じ
     return
   
   vwau=False;nvwau=False
-  await channel.send("Ready")
   
   for item in after.roles :
     if str(item)=='vwau' :
@@ -109,20 +106,14 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
         nvwau = True
         #該当する要素が見つかった時点でブレイクします。
         break
-#   vwau="vwau" in after.roles
-#   nvwau="nvwau" in after.roles
-#   await channel.send("vwau" in after.roles)
-  role = after.guild.get_role(VWAU_ROLE_ID)
+  
+  role = after.guild.get_role(NVWAU_ROLE_ID)
   if vwau:
-    await channel.send("vwau")
     if nvwau:
-      await channel.send("nvwau")
       await after.remove_roles(role) #vwauのロールID
       return after
   else:
-    await channel.send("not vwau")
     if not nvwau:
-      await channel.send("not nvwau")
       await after.add_roles(role) #vwauのロールID
       return after
 
