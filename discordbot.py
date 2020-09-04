@@ -97,7 +97,7 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
     return
   
   await channel.send("Ready")
-  await channel.send(after.roles.name)
+#   await channel.send(after.roles.name)
   vwau='vwau' in after.roles.name
   nvwau='nvwau' in after.roles.name
   if vwau:
