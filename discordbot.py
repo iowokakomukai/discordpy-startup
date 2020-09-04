@@ -31,15 +31,15 @@ async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
-#   Linvite=server.invites()
-#   await channel.send("await invite")
-#   await channel.send(Linvite)
-#   await channel.send("Return")
+  Linvite=await server.invites()
+  await channel.send("await invite")
+  await channel.send(Linvite)
+  await channel.send("Return")
 
 # @client.event
 # async def on_member_join(member):
 #   a_invite_B=0;a_invite_C=0;a_invite_D=0;
-#   Linvite=await invites()
+#   Linvite=await member.guild.invites()
 #   a_invite_B=Linvite[0].max_uses
 #   a_invite_C=Linvite[1].max_uses
 #   a_invite_D=Linvite[2].max_uses
