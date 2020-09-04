@@ -92,14 +92,15 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
   ChannelID = int(739996327336869951) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("update")
+  #clear
   if before.roles == after.roles: #更新前と更新後のロールが同じ
-    await channel.send("same")
     return
   
   await channel.send("Ready")
   await channel.send(after.roles)
   vwau="<Role id=739996326737084567 name='vwau'>" in after.roles
   nvwau="<Role id=739996326737084566 name='nvwau'>" in after.roles
+  await channel.send("<Role id=739996326737084567 name='vwau'>" in after.roles)
   if vwau:
     await channel.send("vwau")
     if nvwau:
