@@ -115,6 +115,5 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
       await after.add_roles(role) #vwauのロールID
       return after
 
-
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
