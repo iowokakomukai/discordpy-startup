@@ -89,6 +89,8 @@ async def on_message(message): #message受信時
 
 @client.event
 async def on_member_update(before, after):#Member情報変更時に呼び出し
+  ChannelID = int(739996327336869951) #送信するチャンネルID
+  channel = client.get_channel(ChannelID)
   await channel.send("update")
   if before.roles == after.roles: #更新前と更新後のロールが同じ
     await channel.send("same")
