@@ -32,6 +32,7 @@ async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
+  await channel.send(type(server))
 #   Linvite=await server.invites()
 #   await channel.send("await invite")
 #   await channel.send(Linvite)
@@ -60,21 +61,17 @@ async def on_ready(): #Bot起動準備完了時
 #   invite_C=a_invite_C
 #   invite_D=a_invite_D
 
-
+#clear
 @client.event
 async def on_message(message): #message受信時
-  #clear
   if message.author.bot: #Botだった場合は反応しない
     return
 
-  #clear
   if message.channel.id == ID_BUMP_ROOM and message.content == "!d bump": #disboardのbumpコマンド実行時&チャンネル指定
-    await asyncio.sleep(7200)
+    await asyncio.sleep(7200)   #2時間待つ
     await message.channel.send("<@&740293083089993748> remind 2hours") #remind bump用ロール
     return
 
-  #clear
-  await message.channel.send("channel")
   if message.channel.id == ID_SELF_MEN or message.channel.id == ID_SELF_WOMEN: #自己紹介(男or女)のチャンネル
     member = message.channel.guild.get_member(message.author.id)
     role = message.guild.get_role(SELF_ROLE_ID)
@@ -88,9 +85,9 @@ async def on_message(message): #message受信時
       await member.add_roles(role) #f
       return member
 
+#clear
 @client.event
 async def on_member_update(before, after):#Member情報変更時に呼び出し
-  #clear
   if before.roles == after.roles: #更新前と更新後のロールが同じ
     return
   
@@ -99,12 +96,12 @@ async def on_member_update(before, after):#Member情報変更時に呼び出し
   for item in after.roles :
     if str(item)=='vwau' :
         vwau = True
-        #該当する要素が見つかった時点でブレイクします。
+        #該当する要素が見つかった時点でブレイク。
         break
   for item in after.roles :
     if str(item)=='nvwau' :
         nvwau = True
-        #該当する要素が見つかった時点でブレイクします。
+        #該当する要素が見つかった時点でブレイク。
         break
   
   role = after.guild.get_role(NVWAU_ROLE_ID)
