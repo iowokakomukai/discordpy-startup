@@ -47,6 +47,7 @@ async def on_member_join(member):
 #   global invite_B
 #   global invite_C
 #   global invite_D
+  user = client.get_user(member.id)
   server=client.get_guild(ServerID)
   channel = client.get_channel(ID_IN_ROOM)
   B_invite_B=0;C_invite_C=0;D_invite_D=0
@@ -73,8 +74,9 @@ async def on_member_join(member):
 #   invite_B=B_invite_B
 #   invite_C=C_invite_C
 #   invite_D=D_invite_D
+  txt1=str(user.name)+"#"+str(user.discriminator)
   txt2=str(B_invite_B)+"."+str(C_invite_C)+"."+str(D_invite_D)
-  await channel.send(member.name)
+  await channel.send(txt1)
   await channel.send(txt2)
 
 #clear
