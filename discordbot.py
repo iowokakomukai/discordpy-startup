@@ -51,37 +51,36 @@ async def on_member_join(member):
   server=client.get_guild(ServerID)
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
-  a_invite_B=0;a_invite_C=0;a_invite_D=0;
+  B_invite_B=0;C_invite_C=0;D_invite_D=0
   await channel.send(globals())
   await channel.send(locals())
   Linvite=await server.invites()
   await channel.send(Linvite)
-  await channel.send("clear")
   await channel.send(type(invite_B))
   await channel.send(invite_B)
   await channel.send(invite_C)
   await channel.send(invite_D)
-  a_invite_C=Linvite[0].uses
-  a_invite_B=Linvite[1].uses
-  a_invite_D=Linvite[2].uses
+  C_invite_C=Linvite[0].uses
+  B_invite_B=Linvite[1].uses
+  D_invite_D=Linvite[2].uses
   await channel.send(Linvite[0].uses)
   await channel.send(Linvite[1].uses)
   await channel.send(Linvite[2].uses)
-  if a_invite_B!=invite_B:
+  if B_invite_B!=invite_B:
     role = server.get_role(B_ROLE_ID)
     await member.add_roles(role)
-  elif a_invite_C!=invite_C:
+  elif C_invite_C!=invite_C:
     role = server.get_role(C_ROLE_ID)
     await member.add_roles(role)
-  elif a_invite_D!=invite_D:
+  elif D_invite_D!=invite_D:
     role = server.get_role(D_ROLE_ID)
     await member.add_roles(role)
   else:
     role = server.get_role(I_ROLE_ID)
     await member.add_roles(role)
-  invite_B=a_invite_B
-  invite_C=a_invite_C
-  invite_D=a_invite_D
+  invite_B=B_invite_B
+  invite_C=C_invite_C
+  invite_D=D_invite_D
   await channel.send(invite_B)
   await channel.send(invite_C)
   await channel.send(invite_D)
