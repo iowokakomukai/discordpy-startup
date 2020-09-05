@@ -74,8 +74,9 @@ async def on_member_join(member):
   invite_B=B_invite_B
   invite_C=C_invite_C
   invite_D=D_invite_D
+  txt2=str(invite_B)+"."+str(invite_C)+"."+str(invite_D)
   await channel.send(member.name)
-  await channel.send(invite_B,invite_C,invite_D)
+  await channel.send(txt2)
 
 #clear
 @client.event
