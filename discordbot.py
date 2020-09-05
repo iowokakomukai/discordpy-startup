@@ -48,9 +48,13 @@ async def on_member_join(member):
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   B_invite_B=0;C_invite_C=0;D_invite_D=0
-  await channel.send(globals())
-  await channel.send(locals())
   Linvite=await server.invites()
+  for item in after.roles :
+    await channel.send(item)
+#     if str(item)=='nvwau' :
+#         nvwau = True
+#         #該当する要素が見つかった時点でブレイク。
+#         break
   await channel.send(Linvite)
   await channel.send(type(invite_B))
   await channel.send(type(invite_C))
