@@ -48,12 +48,12 @@ async def on_ready(): #Bot起動準備完了時
 
 @client.event
 async def on_member_join(member):
-  await channel.send(globals())
-  await channel.send(locals())
   server=client.get_guild(ServerID)
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   a_invite_B=0;a_invite_C=0;a_invite_D=0;
+  await channel.send(globals())
+  await channel.send(locals())
   Linvite=await server.invites()
   await channel.send(Linvite)
   await channel.send("clear")
