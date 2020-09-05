@@ -31,20 +31,13 @@ D_ROLE_ID=int(751477456640409625)
 I_ROLE_ID=int(751477458724978818)
 
 #global
-invite_B=0;invite_C=5;invite_D=2
+invite_B=0;invite_C=12;invite_D=2
 
 @client.event
 async def on_ready(): #Bot起動準備完了時
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
   await channel.send("Ready")
-  await channel.send(invite_B)
-  await channel.send(type(invite_B))
-  await channel.send(invite_C)
-  await channel.send(invite_D)
-  await channel.send("OK")
-  await channel.send(globals())
-  await channel.send(locals())
 
 @client.event
 async def on_member_join(member):
@@ -56,10 +49,6 @@ async def on_member_join(member):
   await channel.send(locals())
   Linvite=await server.invites()
   await channel.send(Linvite)
-  await channel.send(type(invite_B))
-  await channel.send(invite_B)
-  await channel.send(invite_C)
-  await channel.send(invite_D)
   C_invite_C=Linvite[0].uses
   B_invite_B=Linvite[1].uses
   D_invite_D=Linvite[2].uses
