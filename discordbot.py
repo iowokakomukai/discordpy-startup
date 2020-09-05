@@ -31,7 +31,7 @@ D_ROLE_ID=int(751477456640409625)
 I_ROLE_ID=int(751477458724978818)
 
 #global
-invite_B=0;invite_C=12;invite_D=2
+invite_B=4;invite_C=15;invite_D=2
 
 @client.event
 async def on_ready(): #Bot起動準備完了時
@@ -51,17 +51,16 @@ async def on_member_join(member):
   Linvite=await server.invites()
   for item in Linvite :
     await channel.send(item)
-#     if str(item)=='nvwau' :
-#         nvwau = True
-#         #該当する要素が見つかった時点でブレイク。
-#         break
+    if "2z8DQQQ" in str(item) :
+        C_invite_C=item.uses
+    elif "96EqWqK" in str(item) :
+        B_invite_B=item.uses
+    elif "dnGcKws" in str(item) :
+        D_invite_D=item.uses
   await channel.send(Linvite)
-  C_invite_C=Linvite[0].uses
-  B_invite_B=Linvite[1].uses
-  D_invite_D=Linvite[2].uses
-  await channel.send(Linvite[0].uses)
-  await channel.send(Linvite[1].uses)
-  await channel.send(Linvite[2].uses)
+  await channel.send(C_invite_C)
+  await channel.send(B_invite_B)
+  await channel.send(D_invite_D)
   if B_invite_B!=invite_B:
     role = server.get_role(B_ROLE_ID)
     await member.add_roles(role)
