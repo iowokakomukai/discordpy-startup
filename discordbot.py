@@ -56,12 +56,6 @@ async def on_member_join(member):
 #         #該当する要素が見つかった時点でブレイク。
 #         break
   await channel.send(Linvite)
-  await channel.send(type(invite_B))
-  await channel.send(type(invite_C))
-  await channel.send(type(invite_D))
-  await channel.send(invite_B)
-  await channel.send(invite_C)
-  await channel.send(invite_D)
   C_invite_C=Linvite[0].uses
   B_invite_B=Linvite[1].uses
   D_invite_D=Linvite[2].uses
@@ -83,9 +77,6 @@ async def on_member_join(member):
   invite_B=B_invite_B
   invite_C=C_invite_C
   invite_D=D_invite_D
-  await channel.send(invite_B)
-  await channel.send(invite_C)
-  await channel.send(invite_D)
 
 #clear
 @client.event
