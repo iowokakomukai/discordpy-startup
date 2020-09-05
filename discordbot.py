@@ -41,6 +41,9 @@ async def on_ready(): #Bot起動準備完了時
 
 @client.event
 async def on_member_join(member):
+  global invite_B
+  global invite_C
+  global invite_D
   server=client.get_guild(ServerID)
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
