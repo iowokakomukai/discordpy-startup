@@ -49,7 +49,7 @@ async def on_member_join(member):
   channel = client.get_channel(ChannelID)
   B_invite_B=0;C_invite_C=0;D_invite_D=0
   Linvite=await server.invites()
-  for item in after.roles :
+  for item in Linvite :
     await channel.send(item)
 #     if str(item)=='nvwau' :
 #         nvwau = True
