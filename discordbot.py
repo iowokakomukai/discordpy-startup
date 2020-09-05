@@ -44,7 +44,6 @@ async def on_ready(): #Bot起動準備完了時
   await channel.send(invite_D)
   await channel.send("OK")
 
-
 @client.event
 async def on_member_join(member):
   server=client.get_guild(ServerID)
@@ -53,6 +52,7 @@ async def on_member_join(member):
   a_invite_B=0;a_invite_C=0;a_invite_D=0;
   Linvite=await server.invites()
   await channel.send(Linvite)
+  await channel.send("clear")
   await channel.send(type(invite_B))
   await channel.send(invite_B)
   await channel.send(invite_C)
