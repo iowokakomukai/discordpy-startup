@@ -43,9 +43,13 @@ async def on_ready(): #Bot起動準備完了時
   await channel.send(invite_C)
   await channel.send(invite_D)
   await channel.send("OK")
+  await channel.send(globals())
+  await channel.send(locals())
 
 @client.event
 async def on_member_join(member):
+  await channel.send(globals())
+  await channel.send(locals())
   server=client.get_guild(ServerID)
   ChannelID = int(739996326909182036) #送信するチャンネルID
   channel = client.get_channel(ChannelID)
