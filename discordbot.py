@@ -33,7 +33,7 @@ D_ROLE_ID=int(751477456640409625)
 I_ROLE_ID=int(751477458724978818)
 
 #global
-invite_B=4;invite_C=15;invite_D=2
+# invite_B=4;invite_C=15;invite_D=2
 
 #clear
 @client.event
@@ -44,9 +44,9 @@ async def on_ready(): #Bot起動準備完了時
 #clear
 @client.event
 async def on_member_join(member):
-  global invite_B
-  global invite_C
-  global invite_D
+#   global invite_B
+#   global invite_C
+#   global invite_D
   server=client.get_guild(ServerID)
   channel = client.get_channel(ID_IN_ROOM)
   B_invite_B=0;C_invite_C=0;D_invite_D=0
@@ -58,22 +58,22 @@ async def on_member_join(member):
         B_invite_B=item.uses
     elif "dnGcKws" in str(item) :
         D_invite_D=item.uses
-  if B_invite_B!=invite_B:
-    role = server.get_role(B_ROLE_ID)
-    await member.add_roles(role)
-  elif C_invite_C!=invite_C:
-    role = server.get_role(C_ROLE_ID)
-    await member.add_roles(role)
-  elif D_invite_D!=invite_D:
-    role = server.get_role(D_ROLE_ID)
-    await member.add_roles(role)
-  else:
-    role = server.get_role(I_ROLE_ID)
-    await member.add_roles(role)
-  invite_B=B_invite_B
-  invite_C=C_invite_C
-  invite_D=D_invite_D
-  txt2=str(invite_B)+"."+str(invite_C)+"."+str(invite_D)
+#   if B_invite_B!=invite_B:
+#     role = server.get_role(B_ROLE_ID)
+#     await member.add_roles(role)
+#   elif C_invite_C!=invite_C:
+#     role = server.get_role(C_ROLE_ID)
+#     await member.add_roles(role)
+#   elif D_invite_D!=invite_D:
+#     role = server.get_role(D_ROLE_ID)
+#     await member.add_roles(role)
+#   else:
+#     role = server.get_role(I_ROLE_ID)
+#     await member.add_roles(role)
+#   invite_B=B_invite_B
+#   invite_C=C_invite_C
+#   invite_D=D_invite_D
+  txt2=str(B_invite_B)+"."+str(C_invite_C)+"."+str(D_invite_D)
   await channel.send(member.name)
   await channel.send(txt2)
 
